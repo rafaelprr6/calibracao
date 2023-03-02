@@ -51,9 +51,11 @@ img = cv2.imread("aruco.jpeg")
 img = resize(img, width=600)
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
+# Esta funcao detecta as quinas e o id em um aruco
 marker_corners, marker_IDs, reject = aruco.detectMarkers(
     gray_img, marker_dict, parameters=param_markers
 )
+
 if marker_corners:
     for ids, corners in zip(marker_IDs, marker_corners):
         cv2.polylines(
